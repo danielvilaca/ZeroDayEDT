@@ -1,4 +1,4 @@
-# <h1 align="center"><b>Zero-Day</b></h1>
+# <h1 align="center"><b>Zero Day EDT</b></h1>
 
 ---
 
